@@ -7,7 +7,7 @@ const cors = require('cors')
 require('dotenv').config()
 
 const port = process.env.PORT || 5000
-
+const uri = 'mongodb+srv://ofuzor:ofuzor2018@cluster0.qjl8f.mongodb.net/dating?retryWrites=true&w=majority'
 const app = express()
 
 app.use(cors())
@@ -32,7 +32,7 @@ app.use((req,res,next)=>{
     })
  })
 
-mongoose.connect(process.env.MONGO_URI,()=>console.log('connected to db'))
+mongoose.connect(process.env.MONGO_URI  || uri,()=>console.log('connected to db'))
 
 
 app.listen(port, ()=>console.log(`app running on port ${port}`))
