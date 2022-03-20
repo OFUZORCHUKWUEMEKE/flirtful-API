@@ -32,7 +32,7 @@ app.use((req,res,next)=>{
     })
  })
 
-mongoose.connect(port,()=>console.log('connected to db'))
+mongoose.connect(process.env.MONGO_URI,()=>console.log('connected to db'))
 
 
 app.listen(port, ()=>console.log(`app running on port ${port}`))
